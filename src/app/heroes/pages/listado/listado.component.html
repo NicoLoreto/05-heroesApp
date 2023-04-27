@@ -1,0 +1,40 @@
+<h1>
+    Listado de heroes
+</h1>
+
+<!-- para hacer una linea de separacion -->
+<mat-divider></mat-divider>
+<br>
+
+<!-- uso fxLayout para flex en forma de row
+para es para que se se pasa del ancho se vaya debajo -->
+
+<!-- fxLayoutAling para alinear -->
+
+<!-- fxLayoutGap para espaciar las imagenes en px -->
+<!-- fxLayout.xs="column" para cuando la pantalla es 
+muy pequena mostrar de a una tarjeta en columna -->
+
+<div fxLayout="row wrap"
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     
+     fxLayoutGap="20px">
+
+    <!-- con fxFlex="20" estoy haciendo que cada 
+    tarjeta tenga el 20% del row -->
+
+    <!-- fxFlex.lg para adaptar a pantallas grandes en porcentajes -->
+
+    <div fxFlex="20" 
+         fxFlex.lg="15"
+         fxFlex.sm="30"
+         *ngFor="let heroe of heroes">
+
+<!-- tarjetas -->
+
+<!-- tengo que mandarle la variable heroe entre [] y asignarla al valor del heroe que estoy usando aca en el ngFor -->
+<app-heroe-tarjeta [heroe]="heroe"></app-heroe-tarjeta>
+
+</div>
+</div>

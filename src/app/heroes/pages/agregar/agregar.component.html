@@ -1,0 +1,86 @@
+<!-- aca voy a realizar un CRUD a traves de un formulario sencullo -->
+<h1>Nuevo Héroe 
+    <small>
+        
+    </small>
+</h1>
+
+<div fxLayout="row"
+     fxLayoutGap = "40px">
+
+        <div fxLayout="column" fxFlex="50">
+
+            <div fxLayout="row" fxLayoutGap="20px">
+                <mat-form-field fxFlex="100">
+                    <mat-label>
+                        Super Heroe
+                    </mat-label>
+                    <input matInput
+                           type="text"
+                           required>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                    <mat-label>
+                        Alter Ego
+                    </mat-label>
+                    <input matInput
+                        type="text"
+                        required>
+                </mat-form-field>
+            </div>
+
+
+            <mat-form-field fxFlex="100">
+                <mat-label>
+                    Primera aparicion
+                </mat-label>
+                <input matInput
+                       type="text"
+                       required
+                >
+            </mat-form-field>
+            <mat-form-field fxFlex="100">
+                <mat-label>
+                    Personajes
+                </mat-label>
+                <input matInput
+                       type="text"
+                       required
+                >
+            </mat-form-field>
+            <mat-form-field fxFlex="100">
+                <mat-label>
+                    Creador
+                </mat-label>
+                <!-- para seleccionar opciones -->
+               <mat-select>
+                    <mat-option *ngFor="let publisher of publishers"
+                                [value]="publisher.id">
+                        {{publisher.desc}}
+                    </mat-option>
+               </mat-select>
+
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100">
+                <mat-label>
+                    Foto url
+                </mat-label>
+                <input matInput
+                       type="text"
+                       required
+                >
+            </mat-form-field>
+           <br>
+            <button mat-raised-button color="primary">
+                <mat-icon>edit</mat-icon>
+                Guardar
+            </button>
+        </div>
+        
+        <div fxFlex="50">
+            <img [src]="heroe | imagen" alt="">
+        </div>
+    
+    </div>

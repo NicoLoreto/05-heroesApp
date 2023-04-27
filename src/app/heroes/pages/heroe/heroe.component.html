@@ -1,0 +1,69 @@
+<!-- para el grid el numero de col es obligatorio -->
+<!--     <mat-grid-tile></mat-grid-tile> es para cada elemento-->
+<!-- <mat-spinner></mat-spinner> es el spinner propiamente dicho -->
+<mat-grid-list cols="1"
+    *ngIf="!heroe; else divHeroe">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+
+</mat-grid-list>
+
+<ng-template #divHeroe>
+
+
+<div fxLayout="row"
+     fxLayout.xs="colums"
+     fxLayoutGap="30px">
+    
+     <div fxFlex="50">
+        <h1> {{heroe.superhero}} <small> - {{heroe.alter_ego}}</small> </h1> 
+        <mat-divider></mat-divider>
+        <br>
+        <img [src]="heroe | imagen" alt="imagen-heroe">
+     </div>
+
+     <div fxFlex="50">
+        <h1> {{heroe.publisher}} </h1> 
+        <mat-divider></mat-divider>
+        <br>
+
+        <mat-list>
+
+           
+            <mat-list-item>
+                <span matListItemTitle>Primera aparición</span>
+                {{heroe.first_appearance}}
+            </mat-list-item>
+
+            <!-- <mat-list-item>
+                <span matListItemTitle>Caracterizado por</span>
+                {{heroe.characters}}
+            </mat-list-item> -->
+                
+            <mat-list-item>
+                <span matListItemTitle>Editado por</span>
+                {{heroe.publisher}}
+            </mat-list-item>
+                
+            <mat-list-item>
+                <span matListItemTitle>Su alter ego es</span>
+                {{heroe.alter_ego}}
+            </mat-list-item>
+        </mat-list>
+
+        <br>
+
+        <button mat-button color="warn"
+        (click)="regresar()">
+            Regresar
+        </button>
+
+     </div>
+    
+    
+</div>
+
+
+</ng-template>
+
