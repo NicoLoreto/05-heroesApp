@@ -50,4 +50,20 @@ export class AgregarComponent {
 
   }
 
+  get heroeActual(): Heroe{
+
+    // hago un get para mandar el heroe con los valores ingresados en el form
+    // as sirve para decir que trate a este heroe como si fuese un Heroe
+    const heroe = this.heroesForm.value as Heroe
+    return heroe
+
+  }
+
+  onSubmit(): void{
+    console.log({
+      formIsValid: this.heroesForm.valid,
+      valor: this.heroesForm.value
+    })
+  }
+
 }
