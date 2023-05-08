@@ -168,32 +168,14 @@
       "characters": "Norrin Radd"
     },
     {
-      "id": "prueba-tarot",
-      "superhero": "Prueba Tarot ",
-      "publisher": "Prueba Tarot",
-      "alter_ego": "",
-      "first_appearance": "",
-      "characters": ""
-    },
-    {
-      "id": "TBDdmtC",
-      "superhero": "Zorro",
-      "publisher": "DC-comic",
-      "alter_ego": "Diego de la vega",
-      "first_appearance": "El zorro",
-      "characters": "El zorrito",
+      "id": "R9sx4iH",
+      "superhero": "Caballero Rojo",
+      "publisher": "DC-marbel",
+      "alter_ego": "No tiene",
+      "first_appearance": "Titanes en el ring",
+      "characters": "El caballero rojo",
       "name": "",
-      "alt_img": ""
-    },
-    {
-      "id": "zac4GZ5",
-      "superhero": "Zorro",
-      "publisher": "DC-comic",
-      "alter_ego": "Diego de la vega",
-      "first_appearance": "El zorro",
-      "characters": "El zorrito",
-      "name": "",
-      "alt_img": "asdd"
+      "alt_img": "https://i.pinimg.com/originals/94/27/cf/9427cf3fe427a949d68ffe1a9967f96a.jpg"
     }
   ]
 }

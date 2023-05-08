@@ -14,6 +14,7 @@ export class ImagenPipe implements PipeTransform {
             return 'assets/no-image.png'
         }
 
+        // url
         if( valor.alt_img){
             return valor.alt_img
         }
