@@ -1,4 +1,4 @@
-<!-- aca voy a realizar un CRUD a traves de un formulario sencullo -->
+<!-- aca voy a realizar un CRUD a traves de un formulario sencillo -->
 <h1>Nuevo Héroe 
     <small>
         
@@ -8,7 +8,10 @@
 <div fxLayout="row"
      fxLayoutGap = "40px">
 
-        <div fxLayout="column" fxFlex="50">
+        <form fxLayout="column" 
+             fxFlex="50"
+             [formGroup]="heroesForm"
+             (ngSubmit)="onSubmit()">
 
             <div fxLayout="row" fxLayoutGap="20px">
                 <mat-form-field fxFlex="100">
@@ -17,7 +20,9 @@
                     </mat-label>
                     <input matInput
                            type="text"
-                           required>
+                           required
+                           formControlName="superhero"                           
+                           >
                 </mat-form-field>
 
                 <mat-form-field fxFlex="100">
@@ -26,7 +31,8 @@
                     </mat-label>
                     <input matInput
                         type="text"
-                        required>
+                        required
+                        formControlName="alter_ego" >
                 </mat-form-field>
             </div>
 
@@ -38,6 +44,7 @@
                 <input matInput
                        type="text"
                        required
+                       formControlName="first_appearance" 
                 >
             </mat-form-field>
             <mat-form-field fxFlex="100">
@@ -47,6 +54,7 @@
                 <input matInput
                        type="text"
                        required
+                       formControlName="characters"
                 >
             </mat-form-field>
             <mat-form-field fxFlex="100">
@@ -54,7 +62,10 @@
                     Creador
                 </mat-label>
                 <!-- para seleccionar opciones -->
-               <mat-select>
+               <mat-select
+                      formControlName="publisher"
+                      required
+                      >
                     <mat-option *ngFor="let publisher of publishers"
                                 [value]="publisher.id">
                         {{publisher.desc}}
@@ -69,18 +80,26 @@
                 </mat-label>
                 <input matInput
                        type="text"
+                       formControlName="alt_img"
                        required
                 >
             </mat-form-field>
            <br>
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary"
+            type="submit">
                 <mat-icon>edit</mat-icon>
                 Guardar
             </button>
-        </div>
+        </form>
         
         <div fxFlex="50">
-            <img [src]="heroe | imagen" alt="">
+            <img [src]="heroeActual | imagen" alt="imagen del heroe">
         </div>
     
     </div>
+
+    <pre>
+
+        {{heroeActual | json}}
+
+    </pre>
