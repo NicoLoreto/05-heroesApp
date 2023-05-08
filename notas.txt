@@ -285,4 +285,11 @@ PRIMERO VA EL THIS.HEROES Y DESP LA RESPUESTA
 
   Estas solicitudes generalmente van en servicios
 
+  ### FORMS ###
+
+  en el componente debo definir un FormGroup con todos los formcontrol dentro identificados con una propiedad,
+  luego uso esas propiedades para aplicarlas en el html con formControlName. luego puedo agregar ngsubmit
+  (con ell metodo que defini en el componente) al elemento form y type = submit al boton para enviar los datos. O si tengo
+  el boton fuera del formulario puedo hacer un (click) = el metodo que cree
+
   

@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
+  styleUrls: ['./agregar.component.css']
 })
 export class AgregarComponent {
 
