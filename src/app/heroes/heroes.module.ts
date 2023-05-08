@@ -4,7 +4,7 @@ import { HeroesRoutingModule } from './heroes-routing.module';
 // importo de angular flex para flex
 import { FlexLayoutModule } from '@angular/flex-layout';
 // formulario
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
@@ -32,6 +32,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     HeroesRoutingModule,
     MaterialModule
   ]
