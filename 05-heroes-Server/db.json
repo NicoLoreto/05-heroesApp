@@ -174,6 +174,26 @@
       "alter_ego": "",
       "first_appearance": "",
       "characters": ""
+    },
+    {
+      "id": "TBDdmtC",
+      "superhero": "Zorro",
+      "publisher": "DC-comic",
+      "alter_ego": "Diego de la vega",
+      "first_appearance": "El zorro",
+      "characters": "El zorrito",
+      "name": "",
+      "alt_img": ""
+    },
+    {
+      "id": "zac4GZ5",
+      "superhero": "Zorro",
+      "publisher": "DC-comic",
+      "alter_ego": "Diego de la vega",
+      "first_appearance": "El zorro",
+      "characters": "El zorrito",
+      "name": "",
+      "alt_img": "asdd"
     }
   ]
 }

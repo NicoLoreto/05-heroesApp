@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
 import { FormControl, FormGroup } from '@angular/forms';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-agregar',
@@ -51,6 +52,8 @@ export class AgregarComponent {
 
   }
 
+constructor (private heroesService: HeroesService){}
+
   get heroeActual(): Heroe{
 
     // hago un get para mandar el heroe con los valores ingresados en el form
@@ -61,6 +64,28 @@ export class AgregarComponent {
   }
 
   onSubmit(): void{
+
+    if(!this.heroeActual){
+      return
+    }
+
+    // si tiene un id quiere decir que tengo que actualizarlo
+    if(this.heroeActual.id){
+      this.heroesService.actualizarHeroe(this.heroeActual)
+        .subscribe(hero => {
+          //mostrar mensaje
+        })
+        return
+    }
+
+    // si no tiene id quiere decir que lo tengo que crear
+    this.heroesService.agregarHeroe(this.heroeActual)
+      .subscribe( heroe => {
+        //mensaje
+      })
+
+
+
     console.log({
       formIsValid: this.heroesForm.valid,
       valor: this.heroesForm.value
