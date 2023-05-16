@@ -130,7 +130,7 @@ constructor (
         return
     }
 
-    // si no tiene id quiere decir que lo tengo que crear
+    // si no tiene id quiere decir que lo tengo que crearr
     this.heroesService.agregarHeroe(this.heroeActual)
       .subscribe( heroe => {
         // envio a la ruta de edicion del heroe creado
