@@ -1,5 +1,6 @@
 <!-- aca voy a realizar un CRUD a traves de un formulario sencillo -->
-<h1>Nuevo Héroe 
+<h1>
+    {{heroeActual.id ? 'Editar' : 'Crear'}}
     <small>
         
     </small>
@@ -86,10 +87,12 @@
             </mat-form-field>
             <br>
             <div class="flex">
-            <button mat-flat-button 
+            <button 
+            *ngIf="heroeActual.id"
+            mat-flat-button 
             color="warn"
             >
-                <mat-icon>edit</mat-icon>
+                <mat-icon>delete</mat-icon>
                 Borrar
             </button>
            <br>

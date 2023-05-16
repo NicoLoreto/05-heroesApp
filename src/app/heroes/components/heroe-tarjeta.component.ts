@@ -8,11 +8,12 @@ import { Heroe } from '../interfaces/heroes.interface';
   
   mat-card{
     margin-top: 20px;
-
   }
   
   `]
 })
+
+
 export class HeroeTarjetaComponent {
 
  @Input() heroe!: Heroe ;

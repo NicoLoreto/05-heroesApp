@@ -14,6 +14,7 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { MaterialModule } from '../material/material.module';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -34,7 +35,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     FormsModule,
     ReactiveFormsModule,
     HeroesRoutingModule,
-    MaterialModule
+    MaterialModule,
+    MatSnackBarModule
   ]
 })
 export class HeroesModule { }
