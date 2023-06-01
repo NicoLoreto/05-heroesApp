@@ -18,6 +18,8 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        // permitir constructor y metodos vacios
+        "@typescript-eslint/no-empty-function": ["error", { "allow": ["constructors", "methods"] }]
     }
 }

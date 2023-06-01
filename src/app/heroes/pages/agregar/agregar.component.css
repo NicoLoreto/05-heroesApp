@@ -3,3 +3,18 @@
     display: flex;
     justify-content: space-between;
 }
+
+.container{
+ 
+    display: flex;
+    flex-direction: column !important;
+}
+
+.img{
+
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}

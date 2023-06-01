@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
-import{MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap, tap } from 'rxjs';
+import { ConfirmDialogComponent } from '../../components/confirmDialog/confirmDialog.component';
 
 @Component({
   selector: 'app-agregar',
@@ -128,7 +129,7 @@ constructor (
       this.heroesService.actualizarHeroe(this.heroeActual)
         .subscribe(hero => {
           //mostrar mensaje, llamo a snackbar
-          this.mostrarSnack( `${this.heroe.superhero} Actualizado`);
+          this.mostrarSnack( `${this.heroeActual.superhero} ha sido actualizado`);
         });
         return;
     }
@@ -140,15 +141,50 @@ constructor (
         this.router.navigate(['heroes/editar/', heroe.id]);
 
         //mensaje
-        this.mostrarSnack( `${this.heroe.superhero} Creado`);
+        this.mostrarSnack( `${this.heroeActual.superhero} ha sido creado`);
       });
-
-
 
     console.log({
     formIsValid: this.heroesForm.valid,
       valor: this.heroesForm.value
     });
+  }
+
+  // dialog
+  // un observable siempre necesita un suscribe
+  onDelete(){
+    if(!this.heroeActual) throw Error(' El heroe es requerido');
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    
+      data: this.heroesForm.value 
+    });
+
+    dialogRef.afterClosed()
+    .pipe(
+     // si no esta eliminado pasa
+      filter((result:boolean) => true),
+      switchMap(() => this.heroesService.eliminarHeroePorId(this.heroeActual.id)),
+       // es por si lo quiero volver a eliminar desde la misma vista, va a dara error
+      filter((fueEliminado:boolean) => fueEliminado ), 
+    )
+    .subscribe(() => {
+      this.router.navigate(['/heroes']);
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+
+    //   if(!result) return;
+
+    //   result va a ser el resultado del dialogo
+    //   this.heroesService.eliminarHeroePorId(this.heroeActual.id)
+    //   .subscribe( estaEliminado => {
+    //     if(estaEliminado){
+    //       this.router.navigate(['/heroes']);
+    //     }
+    //   } );
+   
+      
+    // });
   }
 
   // mostrar snack bar, pasa el mensaje, luego un boton y luego alguna otra propiedad, en este
@@ -160,5 +196,7 @@ constructor (
     });
 
   }
+
+
 
 }

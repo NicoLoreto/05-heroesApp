@@ -9,6 +9,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
 //card
 import {MatCardModule} from '@angular/material/card';
+// dialog
+import { MatDialogModule } from '@angular/material/dialog';
 // grid
 import {MatGridListModule} from '@angular/material/grid-list';
 //form field para autocomplete
@@ -40,6 +42,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
