@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
-import {MatSnackBar} from '@angular/material/snack-bar'
+import{MatDialog} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -40,7 +41,7 @@ export class AgregarComponent implements OnInit {
       desc: 'DC-marbel'
     }
 
-  ]
+  ];
 
   heroe: Heroe = {
 
@@ -54,7 +55,7 @@ export class AgregarComponent implements OnInit {
     alt_img: ''
 
 
-  }
+  };
 
 constructor (
   private heroesService: HeroesService,
@@ -63,14 +64,16 @@ constructor (
   private acitivatedRoute: ActivatedRoute,
   // snackbar es nativo de angular, se usa para mostrar mensajes, por ej.
   private snackBar: MatSnackBar,
+  // matDialog muestra un mensaje al usuario para preguntar que quiere hacer
+  private dialog: MatDialog
   ){}
 
   get heroeActual(): Heroe{
 
     // hago un get para mandar el heroe con los valores ingresados en el form
     // as sirve para decir que trate a este heroe como si fuese un Heroe
-    const heroe = this.heroesForm.value as Heroe
-    return heroe
+    const heroe = this.heroesForm.value as Heroe;
+    return heroe;
 
   }
 
@@ -81,7 +84,7 @@ constructor (
     // verifico que si estoy editando dice edit, si estoy
     // creando uno nuevo dice agregar
 
-    if(!this.router.url.includes('edit')) return
+    if(!this.router.url.includes('edit')) return;
 
     // si la url incluye edit
     // necesito saber los parametros que estan viniendo en el url
@@ -102,13 +105,13 @@ constructor (
             // para establecerlo al formulario se usa reset regresa
             // el form al valor original
 
-            this.heroesForm.reset( heroe )
+            this.heroesForm.reset( heroe );
 
             return;
 
 
 
-          })
+          });
 
     }
     
@@ -117,7 +120,7 @@ constructor (
   onSubmit(): void{
 
     if(!this.heroeActual){
-      return
+      return;
     }
 
     // si tiene un id quiere decir que tengo que actualizarlo
@@ -125,27 +128,27 @@ constructor (
       this.heroesService.actualizarHeroe(this.heroeActual)
         .subscribe(hero => {
           //mostrar mensaje, llamo a snackbar
-          this.mostrarSnack( `${this.heroe.superhero} Actualizado`)
-        })
-        return
+          this.mostrarSnack( `${this.heroe.superhero} Actualizado`);
+        });
+        return;
     }
 
     // si no tiene id quiere decir que lo tengo que crearr
     this.heroesService.agregarHeroe(this.heroeActual)
       .subscribe( heroe => {
         // envio a la ruta de edicion del heroe creado
-        this.router.navigate(['heroes/editar/', heroe.id])
+        this.router.navigate(['heroes/editar/', heroe.id]);
 
         //mensaje
-        this.mostrarSnack( `${this.heroe.superhero} Creado`)
-      })
+        this.mostrarSnack( `${this.heroe.superhero} Creado`);
+      });
 
 
 
     console.log({
-      formIsValid: this.heroesForm.valid,
+    formIsValid: this.heroesForm.valid,
       valor: this.heroesForm.value
-    })
+    });
   }
 
   // mostrar snack bar, pasa el mensaje, luego un boton y luego alguna otra propiedad, en este
@@ -154,7 +157,7 @@ constructor (
   mostrarSnack( mensaje: string ){
     this.snackBar.open( mensaje, 'data',{
       duration: 2500,
-    })
+    });
 
   }
 

@@ -12,7 +12,7 @@ export class ListadoComponent {
 
   heroes: Heroe[] = [];
 
-  arr : number[] = [1,2,3,4,5,6]
+  arr : number[] = [1,2,3,4,5,6];
 
   constructor(private heroesService: HeroesService){}
 
@@ -20,7 +20,7 @@ export class ListadoComponent {
   ngOnInit(): void {
 
     this.heroesService.getHeroes()
-      .subscribe ( resp => this.heroes = resp )
+      .subscribe ( resp => this.heroes = resp );
 
   }
 }

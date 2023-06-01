@@ -10,7 +10,7 @@ import { delay, tap } from 'rxjs';
 })
 export class BuscarComponent {
 
-  termino: string ='';
+  termino ='';
 
   heroes: Heroe[] = [];
 
@@ -27,7 +27,7 @@ export class BuscarComponent {
     // componente
 
     this.heroesService.getSugerencias(this.termino.trim())
-      .subscribe(heroes => this.heroes = heroes)
+      .subscribe(heroes => this.heroes = heroes);
 
   }
 
@@ -39,16 +39,16 @@ export class BuscarComponent {
 
 
     if(!event.option.value){
-      this.heroeSeleccionado = undefined
-      return
+      this.heroeSeleccionado = undefined;
+      return;
     }
 
-    const heroe: Heroe = event.option.value
+    const heroe: Heroe = event.option.value;
     
-    this.termino = heroe.superhero
+    this.termino = heroe.superhero;
 
     this.heroesService.getHeroePorId(heroe.id!)
-      .subscribe(heroe => this.heroeSeleccionado = heroe)
+      .subscribe(heroe => this.heroeSeleccionado = heroe);
 
   }
 

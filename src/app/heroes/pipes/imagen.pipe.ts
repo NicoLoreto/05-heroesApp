@@ -11,14 +11,14 @@ export class ImagenPipe implements PipeTransform {
     transform(valor: Heroe): string{
 
         if(!valor.id && !valor.alt_img){
-            return 'assets/no-image.png'
+            return 'assets/no-image.png';
         }
 
         // url
         if( valor.alt_img){
-            return valor.alt_img
+            return valor.alt_img;
         }
-        return `assets/heroes/${valor.id}.jpg`
+        return `assets/heroes/${valor.id}.jpg`;
 
     }
 

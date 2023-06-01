@@ -11,26 +11,26 @@ export class HeroesService {
 
   // creo una propiedad para la url de desarrollo
 
-  private baseUrl: string = environment.baseUrl
+  private baseUrl: string = environment.baseUrl;
 
   constructor( private http : HttpClient) { }
 
   getHeroes(): Observable<Heroe[]>{
-    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`)
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`);
   }
 
   getHeroePorId (id: string): Observable<Heroe> {
-    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`)
+    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`);
   }
 
   getSugerencias(termino: string): Observable<Heroe[]> {
 
-    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes/?q=${termino}&_limit=6`)
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes/?q=${termino}&_limit=6`);
     
   }
 
   agregarHeroe(heroe: Heroe): Observable<Heroe>{
-    return this.http.post<Heroe>(`${this.baseUrl}/heroes`, heroe)
+    return this.http.post<Heroe>(`${this.baseUrl}/heroes`, heroe);
   }
 
   actualizarHeroe(heroe: Heroe): Observable<Heroe>{
@@ -38,7 +38,7 @@ export class HeroesService {
       throw Error ('El ID es requerido');
     }
     // puedo tmb usar pull si quiero actualizar todo
-    return this.http.patch<Heroe>(`${this.baseUrl}/heroes/${heroe.id}`, heroe)
+    return this.http.patch<Heroe>(`${this.baseUrl}/heroes/${heroe.id}`, heroe);
   }
 
   eliminarHeroe(id: string): Observable<boolean>{
@@ -46,7 +46,7 @@ export class HeroesService {
       .pipe(
         catchError(err=> of(false)),
         map(resp => (true))
-    )
+    );
   }
 
 

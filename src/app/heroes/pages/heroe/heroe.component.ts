@@ -17,7 +17,7 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class HeroeComponent {
 
-  heroe!: Heroe
+  heroe!: Heroe;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -31,7 +31,7 @@ export class HeroeComponent {
 
  regresar(){
 
-    this.route.navigate(['/heroes/listado'])
+    this.route.navigate(['/heroes/listado']);
     
 
     }
@@ -48,7 +48,7 @@ export class HeroeComponent {
       .pipe(
           switchMap( ({ id }) => this.servicio.getHeroePorId(id)), 
           )
-          .subscribe(heroe => this.heroe = heroe)
+          .subscribe(heroe => this.heroe = heroe);
     
 
 

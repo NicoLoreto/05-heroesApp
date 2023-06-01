@@ -14,7 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 //form field para autocomplete
 import { MatFormFieldModule } from '@angular/material/form-field';
 //input para autocomplete
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 // list
 import {MatListModule} from '@angular/material/list';
 // icon
